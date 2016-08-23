@@ -1,5 +1,5 @@
 # Deploy PredictionIO 
----
+
 *...En un solo cmd!*
 
 Deploy un servidor de [Prediction.io](http://predictionio.incubator.apache.org/) en un solo comando XD
