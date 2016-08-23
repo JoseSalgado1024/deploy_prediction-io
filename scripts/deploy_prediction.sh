@@ -1,3 +1,7 @@
+#CLEAR!
+
+clear
+
 echo "###########################################"
 echo "#                                         #"
 echo "#        INSTALACION DE DOCKER.IO         #"
