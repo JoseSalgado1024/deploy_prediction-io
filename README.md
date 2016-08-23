@@ -5,6 +5,9 @@ Es importante destacar que este script esta pensado para ser ejecutado sobre dis
 
 ### Prerequisitos:
 
++ Git tools
++ Python 2.7
+
 ##### Dependencias:
 
 	sudo apt-get install build-essential checkinstall
@@ -12,7 +15,7 @@ Es importante destacar que este script esta pensado para ser ejecutado sobre dis
 	
 ##### Herramientas requeridas:
 
-	# Python 2.7
+##### Python 2.7
 	cd ~/Downloads/
 	wget http://python.org/ftp/python/2.7.5/Python-2.7.5.tgz
 	tar -xvf Python-2.7.5.tgz
