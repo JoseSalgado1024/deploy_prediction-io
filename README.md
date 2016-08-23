@@ -1,4 +1,7 @@
-# deploy_prediction-io
+# Deploy PredictionIO 
+
+_...En un solo cmd!_
+---
 Deploy un servidor de [Prediction.io](http://predictionio.incubator.apache.org/) en un solo comando XD
 
 Es importante destacar que este script esta pensado para ser ejecutado sobre distro de linux hijas de **Debian**...
