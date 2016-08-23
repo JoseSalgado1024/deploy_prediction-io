@@ -1,14 +1,29 @@
 #CLEAR!
 
 clear
+eval ./helper_os.py
+exit_code=$?
 
-echo "###########################################"
-echo "#                                         #"
-echo "#        INSTALACION DE DOCKER.IO         #"
-echo "#              + DEPENCIAS                #"
-echo "#                                         #"
-echo "#                                         #"
-echo "###########################################"
+if [[ "$exit_code" -gt "0" ]] ;
+then
+    clear
+    echo ""
+    echo "  ###########################################"
+    echo "  #                                         #"
+    echo "  #          OS NO COMPATIBLE! :(           #"
+    echo "  #                                         #"
+    echo "  ###########################################"
+    echo "" 
+    exit 1
+fi
+
+
+echo "  ###########################################"
+echo "  #                                         #"
+echo "  #        INSTALACION DE DOCKER.IO         #"
+echo "  #              + DEPENCIAS                #"
+echo "  #                                         #"
+echo "  ###########################################"
 
 
 #!/bib/bash
@@ -44,14 +59,14 @@ sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo service docker restart
 
-echo "###########################################"
-echo "#                                         #"
-echo "#                                         #"
-echo "#    INSTALACION SERVER PREDICTION.IO     #"
-echo "#          (usando Docker.io)             #"
-echo "#       IMAGE: sphereio/predictionio      #"
-echo "#                                         #"
-echo "###########################################"
+echo "  ###########################################"
+echo "  #                                         #"
+echo "  #                                         #"
+echo "  #    INSTALACION SERVER PREDICTION.IO     #"
+echo "  #          (usando Docker.io)             #"
+echo "  #       IMAGE: sphereio/predictionio      #"
+echo "  #                                         #"
+echo "  ###########################################"
 
 # Pull and Run dockerIMG
 docker pull sphereio/predictionio
@@ -60,12 +75,12 @@ read pio_port
 docker run -d --name prediction-io-server -v $HOME/MyEngine:/MyEngine -p $pio_port:8000 sphereio/predictionio /bin/bash -c "pio-start-all; pio status"
 
 # Let's play!
-echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-echo "+                                                              +"
-echo "+                 Bien! esos es todo! :D                       +"
-echo "+                                                              +"
-echo "+      Para usarlo, ejecutar:                                  +"
-echo "+      [docker exec -it prediction-io-server /bin/bash]        +"
-echo "+                                                              +"
-echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "  +                                                              +"
+echo "  +                 Bien! esos es todo! :D                       +"
+echo "  +                                                              +"
+echo "  +      Para usarlo, ejecutar:                                  +"
+echo "  +      [docker exec -it prediction-io-server /bin/bash]        +"
+echo "  +                                                              +"
+echo "  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
