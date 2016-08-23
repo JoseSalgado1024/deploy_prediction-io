@@ -24,6 +24,7 @@ sudo apt-get update && sudo apt-get -y upgrade
 
 # Update the repository with the new addition and install docker-engine:
 sudo apt-get install --upgrade cgroup-lite cgroupfs-mount aufs-tools  libsystemd-journal0 && sudo apt-get update && sudo apt-get -q -y install docker-engine
+sudo service docker start
 
 # Edit UFW configuration
 sudo sed 's/DEFAULT_FORWARD_POLICY="DROP"/DEFAULT_FORWARD_POLICY="ACCEPT"/g' /etc/default/ufw > /etc/default/ufw.tmp && mv /etc/default/ufw.tmp /etc/default/ufw
@@ -52,8 +53,15 @@ echo "###########################################"
 docker pull sphereio/predictionio
 echo "Puerto de salida para server de prediction.io?"
 read pio_port
-docker run -it -v $HOME/MyEngine:/MyEngine -p $pio_port:8000 sphereio/predictionio /bin/bash
+docker run -d --name prediction-io-server -v $HOME/MyEngine:/MyEngine -p $pio_port:8000 sphereio/predictionio /bin/bash -c "pio-start-all; pio status"
 
-# Actions inside the container
-# pio-start-all
-# pio status
+# Let's play!
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+echo "+                                                              +"
+echo "+                 Bien! esos es todo! :D                       +"
+echo "+                                                              +"
+echo "+      Para usarlo, ejecutar:                                  +"
+echo "+      [docker exec -it prediction-io-server /bin/bash]        +"
+echo "+                                                              +"
+echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
